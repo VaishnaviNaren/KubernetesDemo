@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                cd microservice-kubernetes-demo
+		sh 'mvn -B -DskipTests clean package' 
             }
         }
     }
