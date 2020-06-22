@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-		echo "Hello World!"
+		cd ~/workspace/Test-maven/microservice-kubernetes-demo
+		sh 'mvn -B -DskipTests clean package' 
             }
         }
     }
