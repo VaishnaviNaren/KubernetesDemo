@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') { 
-            steps {
-		cd ~/workspace/Test-maven/microservice-kubernetes-demo
-		sh 'mvn -B -DskipTests clean package' 
-            }
+        stage('Build') {
+		steps {
+                	sh script:'''
+          		#!/bin/bash
+          		cd ~/workspace/Test-maven/microservice-kubernetes-demo
+          		mvn -B -DskipTests clean package
+        		'''
+            }	 
         }
     }
 }
