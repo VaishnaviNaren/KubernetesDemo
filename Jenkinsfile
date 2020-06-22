@@ -6,7 +6,7 @@ pipeline {
                 	sh script:'''
           		#!/bin/bash
           		cd ~/workspace/Test-maven/microservice-kubernetes-demo
-          		mvn -B -DskipTests clean package
+          		./mvnw -B -DskipTests clean package
         		'''
             }	 
         }
