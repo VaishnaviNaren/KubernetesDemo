@@ -28,7 +28,7 @@ pipeline {
 				sshagent(['SSHToKube']) {
 					withCredentials([string(credentialsId: 'Kube_IP', variable: 'KubeIP')]) {
 						sh script:'''
-						ssh -o StrictHostKeyChecking=no ec2-user@$Kube_IP ./config/kubernetes-deploy.sh
+						ssh -o StrictHostKeyChecking=no ec2-user@$KubeIP ./config/kubernetes-deploy.sh
 						'''
 					}
 				}
