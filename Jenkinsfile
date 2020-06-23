@@ -25,6 +25,11 @@ pipeline {
 				}
 			}
 		}
+		stage ("Deploy the Microservices to Kubernetes") {
+			sh script:'''
+			kubectl apply -f microservices.yaml
+			'''
+		}
 	}
 }
 
