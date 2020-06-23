@@ -30,7 +30,7 @@ pipeline {
 				sshagent(['kubectl-machine']) {
 					sh script:'''
 					cd ~/workspace/Test-maven/microservice-kubernetes-demo
-					./kubernetes-deploy.sh
+					ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 ./kubernetes-deploy.sh
 					'''
 				}
 			}
