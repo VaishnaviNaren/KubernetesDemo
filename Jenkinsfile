@@ -27,9 +27,11 @@ pipeline {
 		}
 		stage ("Deploy the Microservices to Kubernetes") {
 			steps {
-				sh script:'''
-				kubectl apply -f microservices.yaml
-				'''
+				sshagent(['kubectl-machine']) {
+					sh script:'''
+					ssh ec2-user@3.130.186.139 kubectl version
+					'''
+				}
 			}
 		}
 	}
