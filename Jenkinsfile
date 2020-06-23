@@ -16,14 +16,17 @@ pipeline {
 		stage ('Building Docker Image') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'vaishnavinaren219', passwordVariable: 'DOCKER_PWD', usernameVariable: 'DOCKER_ACCOUNT')]) {
-					sh "docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD"
-					sh "cd ~/workspace/Test-maven/microservice-kubernetes-demo"
-					sh "./docker-build.sh"
+					sh script:'''
+					#!/bin/bash
+					docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD
+					cd ~/workspace/Test-maven/microservice-kubernetes-demo
+					./docker-build.sh
+					'''
 				}
 			}
 		}
 	}
-}	
+}
 
 def getVersionTag(){
 	def tag = sh script: 'git rev-parse HEAD', returnStdout: true
