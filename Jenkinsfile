@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage ("Deploy the Microservices to Kubernetes") {
 			steps {
-				sshagent(['kubectl-machine']) {
+				sshagent(['SSHToKube']) {
 					sh script:'''
 					ssh -o StrictHostKeyChecking=no ec2-user@172.31.35.86 ./config/kubernetes-deploy.sh
 					'''
