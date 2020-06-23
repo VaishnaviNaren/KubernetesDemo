@@ -27,7 +27,7 @@ pipeline {
 			steps {
 				sshagent(['kubectl-machine']) {
 					sh script:'''
-					echo $VERSION_TAG > ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 ./config/kubernetes-deploy.sh
+					ssh -o StrictHostKeyChecking=no ec2-user@172.31.35.86 ./config/kubernetes-deploy.sh
 					'''
 				}
 			}
