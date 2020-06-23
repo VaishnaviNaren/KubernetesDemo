@@ -1,8 +1,6 @@
 pipeline {
 	agent any
-	environment{
-		VERSION_TAG = getVersionTag()
-    }
+
 	stages {
 		stage('Code Build') {
 			steps {
@@ -29,15 +27,10 @@ pipeline {
 			steps {
 				sshagent(['kubectl-machine']) {
 					sh script:'''
-					cd ~/workspace/Test-maven/microservice-kubernetes-demo
-					ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 ./config/kubernetes-deploy.sh
+					echo $VERSION_TAG > ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 ./config/kubernetes-deploy.sh
 					'''
 				}
 			}
 		}
 	}
-}
-
-def getVersionTag(){
-	def tag = sh script: 'git rev-parse HEAD', returnStdout: true
 }
