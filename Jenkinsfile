@@ -17,8 +17,8 @@ pipeline {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'vaishnavinaren219', passwordVariable: 'DOCKER_PWD', usernameVariable: 'DOCKER_ACCOUNT')]) {
 					sh "docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD"
-					sh "pwd"
-					sh "./microservice-kubernetes-demo/docker-build.sh"
+					sh "cd ~/workspace/Test-maven/microservice-kubernetes-demo"
+					sh "./docker-build.sh"
 				}
 			}
 		}
