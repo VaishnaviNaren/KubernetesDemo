@@ -6,7 +6,7 @@ pipeline {
 			steps {
 				sh script:'''
 				#!/bin/bash
-				cd ~/workspace/Test-maven/microservice-kubernetes-demo
+				cd microservice-kubernetes-demo
 				./mvnw -B -DskipTests clean package
 				'''
 			}
@@ -17,7 +17,7 @@ pipeline {
 					sh script:'''
 					#!/bin/bash
 					docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD
-					cd ~/workspace/Test-maven/microservice-kubernetes-demo
+					cd microservice-kubernetes-demo
 					./docker-build.sh
 					'''
 				}
