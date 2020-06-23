@@ -29,7 +29,8 @@ pipeline {
 			steps {
 				sshagent(['kubectl-machine']) {
 					sh script:'''
-					ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 kubectl version
+					cd ~/workspace/Test-maven/microservice-kubernetes-demo
+					ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 kubectl apply -f microservices.yaml
 					'''
 				}
 			}
