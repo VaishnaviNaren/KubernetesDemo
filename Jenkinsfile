@@ -29,7 +29,7 @@ pipeline {
 			steps {
 				sshagent(['kubectl-machine']) {
 					sh script:'''
-					ssh ec2-user@3.130.186.139 kubectl version
+					ssh -o StrictHostKeyChecking=no ec2-user@3.130.186.139 kubectl version
 					'''
 				}
 			}
