@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage ('Building Docker Image') {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'vaishnavinaren219', passwordVariable: 'DOCKER_PWD', usernameVariable: 'DOCKER_ACCOUNT')]) {
+				withCredentials([usernamePassword(credentialsId: 'DockerCredentials', passwordVariable: 'DOCKER_PWD', usernameVariable: 'DOCKER_ACCOUNT')]) {
 					sh script:'''
 					#!/bin/bash
 					docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD
