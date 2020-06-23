@@ -28,7 +28,7 @@ pipeline {
 				sshagent(['SSHToKube']) {
 					withCredentials([string(credentialsId: 'Kube_IP', variable: 'KubeIP')]) {
 						sh script:'''
-						ssh -o StrictHostKeyChecking=no ec2-user@$KubeIP "kubectl apply -m ./config/microservices.yaml"
+						ssh -o StrictHostKeyChecking=no ec2-user@$KubeIP "kubectl apply -f ./config/microservices.yaml"
 						'''
 					}
 				}
