@@ -7,7 +7,7 @@ pipeline {
 				sh script:'''
 				#!/bin/bash
 				cd microservice-kubernetes-demo
-				./mvnw -B -DskipTests clean package
+				./mvnw clean package sonar:sonar
 				'''
 			}
 		}
