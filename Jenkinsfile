@@ -36,7 +36,7 @@ pipeline {
 					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
-					repository: 'http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release/', 
+					repository: 'http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release', 
 					version: '2.3.0.RELEASE'
 			}
 		}
