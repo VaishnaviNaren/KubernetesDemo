@@ -13,7 +13,8 @@ pipeline {
 		}
 		stage ('Uploading the artifacts to Nexus') {
 			steps{
-				nexusArtifactUploader artifacts: [
+					sh "echo 'CURRENT PATH is '$PWD"
+					nexusArtifactUploader artifacts: [
 					[
 						artifactId: 'microservice-kubernetes-demo-catalog', 
 						classifier: '', 
@@ -38,6 +39,8 @@ pipeline {
 					protocol: 'http', 
 					repository: 'http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release/', 
 					version: '2.3.0.RELEASE'
+					sh "echo 'CURRENT PATH is '$PWD"
+
 			}
 		}
 		stage ('Building Docker Image') {
