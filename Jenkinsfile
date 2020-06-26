@@ -14,6 +14,8 @@ pipeline {
 		stage ('Uploading the artifacts to Nexus') {
 			steps{
 					sh "echo 'CURRENT PATH is '$JOB_BASE_NAME"
+					sh "echo 'JENKINS_HOME = $JENKINS_HOME'"
+					sh "echo 'JOB_BASE_NAME = $JOB_BASE_NAME'"
 					nexusArtifactUploader artifacts: [
 					[
 						artifactId: 'microservice-kubernetes-demo-catalog', 
