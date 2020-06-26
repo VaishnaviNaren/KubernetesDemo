@@ -22,7 +22,7 @@ pipeline {
 				nexusUser: '', 
 				packaging: 'jar', 
 				protocol: 'http', 
-				repository: 'Kubedemo-Release', 
+				repository: 'Kubedemo-SNAPSHOT', 
 				type: '', 
 				version: '0.0.1-SNAPSHOT'
 			}
