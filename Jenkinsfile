@@ -13,14 +13,11 @@ pipeline {
 		}
 		stage ('Uploading the artifacts to Nexus') {
 			steps{
-					sh "echo 'CURRENT PATH is '$JOB_BASE_NAME"
-					sh "echo 'JENKINS_HOME = $JENKINS_HOME'"
-					sh "echo 'JOB_BASE_NAME = $JOB_BASE_NAME'"
-					nexusArtifactUploader artifacts: [
+				nexusArtifactUploader artifacts: [
 					[
 						artifactId: 'microservice-kubernetes-demo-catalog', 
 						classifier: '', 
-						file: '/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-order', 
@@ -41,8 +38,6 @@ pipeline {
 					protocol: 'http', 
 					repository: 'http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release/', 
 					version: '2.3.0.RELEASE'
-					sh "echo 'CURRENT PATH is '$PWD"
-
 			}
 		}
 		stage ('Building Docker Image') {
