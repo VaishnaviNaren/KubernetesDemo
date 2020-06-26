@@ -22,12 +22,12 @@ pipeline {
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-order', 
 						classifier: '', 
-						file: 'target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
+						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-customer', 
 						classifier: '', 
-						file: 'target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
+						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					]
 				], 
