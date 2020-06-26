@@ -32,10 +32,10 @@ pipeline {
 					]
 				], 
 					credentialsId: 'Nexus-credentials', 
-					groupId: 'org.springframework.boot', 
+					groupId: 'com.ewolff', 
 					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
 					nexusVersion: 'nexus3', 
-					protocol: 'https', 
+					protocol: 'http', 
 					repository: 'Kubedemo-Release', 
 					version: '0.0.1-SNAPSHOT'
 			}
