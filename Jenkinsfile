@@ -16,7 +16,7 @@ pipeline {
 				nexusArtifactUploader artifactId: 'microservice-kubernetes-demo-catalog', 
 				classifier: '', 
 				credentialsId: 'Nexus-credentials', 
-				file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kube rnetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+				file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
 				groupId: 'com.ewolff', 
 				nexusPassword: '', nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
 				nexusUser: '', 
