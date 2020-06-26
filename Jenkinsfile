@@ -34,10 +34,10 @@ pipeline {
 					credentialsId: 'Nexus-Credentials', 
 					groupId: 'org.springframework.boot', 
 					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
-					nexusVersion: 'nexus3', 
+					nexusVersion: 'nexus2', 
 					protocol: 'http', 
 					repository: 'Kubedemo-Release', 
-					version: '2.3.0.RELEASE'
+					version: '2.3.0'
 			}
 		}
 		stage ('Building Docker Image') {
