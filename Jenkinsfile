@@ -31,8 +31,8 @@ pipeline {
 						type: 'jar'
 					]
 				], 
-					credentialsId: 'Nexus-Credentials', 
-					groupId: 'com.ewolff', 
+					credentialsId: 'Nexus-credentials', 
+					groupId: 'org.springframework.boot', 
 					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
