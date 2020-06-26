@@ -35,7 +35,7 @@ pipeline {
 					groupId: 'org.springframework.boot', 
 					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
 					nexusVersion: 'nexus3', 
-					protocol: 'http', 
+					protocol: 'https', 
 					repository: 'Kubedemo-Release', 
 					version: '0.0.1-SNAPSHOT'
 			}
