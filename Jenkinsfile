@@ -17,20 +17,17 @@ pipeline {
                                         [
                                                 artifactId: 'microservice-kubernetes-demo-catalog',
                                                 classifier: '',
-                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kube
-rnetes-demo-catalog-0.0.1-SNAPSHOT.jar',
+                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar',
                                                 type: 'jar'
                                         ],
                                         [       artifactId: 'microservice-kubernetes-demo-order',
                                                 classifier: '',
-                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-order/target/microservice-kubern
-etes-demo-order-0.0.1-SNAPSHOT.jar',
+                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar',
                                                 type: 'jar'
                                         ],
                                         [       artifactId: 'microservice-kubernetes-demo-customer',
                                                 classifier: '',
-                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-customer/target/microservice-kub
-ernetes-demo-customer-0.0.1-SNAPSHOT.jar',
+                                                file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar',
                                                 type: 'jar'
                                         ]
                                 ],
@@ -45,8 +42,7 @@ ernetes-demo-customer-0.0.1-SNAPSHOT.jar',
                 }
                 stage ('Building Docker Image') {
                         steps {
-                                withCredentials([usernamePassword(credentialsId: 'Docker-credentials', passwordVariable: 'DOCKER_PWD', usernameVar
-iable: 'DOCKER_ACCOUNT')]) {
+                                withCredentials([usernamePassword(credentialsId: 'Docker-credentials', passwordVariable: 'DOCKER_PWD', usernameVariable: 'DOCKER_ACCOUNT')]) {
                                         sh script:'''
                                         #!/bin/bash
                                         docker login -u $DOCKER_ACCOUNT -p $DOCKER_PWD
