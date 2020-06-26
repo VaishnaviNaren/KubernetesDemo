@@ -17,7 +17,7 @@ pipeline {
 					[
 						artifactId: 'microservice-kubernetes-demo-catalog', 
 						classifier: '', 
-						file: 'target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+						file: '/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-order', 
