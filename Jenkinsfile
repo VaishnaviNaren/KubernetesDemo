@@ -17,17 +17,17 @@ pipeline {
 					[
 						artifactId: 'microservice-kubernetes-demo-catalog', 
 						classifier: '', 
-						file: 'microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+						file: 'target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-order', 
 						classifier: '', 
-						file: 'microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
+						file: 'target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					], 
 					[	artifactId: 'microservice-kubernetes-demo-customer', 
 						classifier: '', 
-						file: 'microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
+						file: 'target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
 						type: 'jar'
 					]
 				], 
