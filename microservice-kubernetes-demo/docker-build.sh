@@ -3,6 +3,7 @@ if [ -z "$DOCKER_ACCOUNT" ]; then
     DOCKER_ACCOUNT=vaishnavinaren219
 fi;
 echo "Building image under $DOCKER_ACCOUNT"
+cd /var/jenkins_home/workspace/CodeBuild-Kube/microservice-kubernetes-demo
 docker build --tag=microservice-kubernetes-demo-apache apache
 docker tag microservice-kubernetes-demo-apache $DOCKER_ACCOUNT/microservice-kubernetes-demo-apache:latest
 docker push $DOCKER_ACCOUNT/microservice-kubernetes-demo-apache
