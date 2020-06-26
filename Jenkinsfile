@@ -56,10 +56,7 @@ pipeline {
                         steps {
                                 sshagent(['SSHToKube']) {
                                         withCredentials([string(credentialsId: 'Kube_IP', variable: 'KubeIP')]) {
-                                                sh script:'''
-                                                cd microservice-kubernetes-demo
-						./kubernetes-deploy.sh
-						'''
+						sh "ssh -o StrictHostKeyChecking=no ec2-user@$KubeIP './kubernetes-deploy.sh'"
                                         }
                                 }
                         }
