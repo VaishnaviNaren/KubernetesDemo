@@ -43,13 +43,13 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
+			<id>Kubedemo-Release</id>
 			<name>Kubedemo-Release</id>
 			<url>http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release/</url>
 		</repository>
 	
 		<snapshotRepository>
-			<id>snapshots</id>
+			<id>Kubedemo-SNAPSHOT</id>
 			<name>Kubedemo-SNAPSHOT</id>
 			<url>http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-SNAPSHOT/</url>
 		</snapshotRepository>
