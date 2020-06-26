@@ -13,31 +13,18 @@ pipeline {
 		}
 		stage ('Uploading the artifacts to Nexus') {
 			steps{
-				nexusArtifactUploader artifacts: [
-					[
-						artifactId: 'microservice-kubernetes-demo-catalog', 
-						classifier: '', 
-						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
-						type: 'jar'
-					], 
-					[	artifactId: 'microservice-kubernetes-demo-order', 
-						classifier: '', 
-						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
-						type: 'jar'
-					], 
-					[	artifactId: 'microservice-kubernetes-demo-customer', 
-						classifier: '', 
-						file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
-						type: 'jar'
-					]
-				], 
-					credentialsId: 'Nexus-credentials', 
-					groupId: 'com.ewolff', 
-					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
-					nexusVersion: 'nexus3', 
-					protocol: 'http', 
-					repository: 'Kubedemo-Release', 
-					version: '0.0.1-SNAPSHOT'
+				nexusArtifactUploader artifactId: 'microservice-kubernetes-demo-catalog', 
+				classifier: '', 
+				credentialsId: 'Nexus-credentials', 
+				file: 'microservice-kubernetes-demo/microservice-kubernetes-demo-catalog/target/microservice-kube rnetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+				groupId: 'com.ewolff', 
+				nexusPassword: '', nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
+				nexusUser: '', 
+				packaging: 'jar', 
+				protocol: 'http', 
+				repository: 'Kubedemo-Release', 
+				type: '', 
+				version: '0.0.1-SNAPSHOT'
 			}
 		}
 		stage ('Building Docker Image') {
