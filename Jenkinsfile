@@ -7,8 +7,37 @@ pipeline {
 				sh script:'''
 				#!/bin/bash
 				cd microservice-kubernetes-demo
-				./mvnw clean package sonar:sonar
+				./mvnw -B -DskipTests clean package
 				'''
+			}
+		}
+		stage ('Uploading the artifacts to Nexus') {
+			steps{
+				nexusArtifactUploader artifacts: [
+					[
+						artifactId: 'microservice-kubernetes-demo-catalog', 
+						classifier: '', 
+						file: 'microservice-kubernetes-demo-catalog/target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar', 
+						type: 'jar'
+					], 
+					[	artifactId: 'microservice-kubernetes-demo-order', 
+						classifier: '', 
+						file: 'microservice-kubernetes-demo-order/target/microservice-kubernetes-demo-order-0.0.1-SNAPSHOT.jar', 
+						type: 'jar'
+					], 
+					[	artifactId: 'microservice-kubernetes-demo-customer', 
+						classifier: '', 
+						file: 'microservice-kubernetes-demo-customer/target/microservice-kubernetes-demo-customer-0.0.1-SNAPSHOT.jar', 
+						type: 'jar'
+					]
+				], 
+					credentialsId: 'Nexus-Credentials', 
+					groupId: 'org.springframework.boot', 
+					nexusUrl: 'ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081', 
+					nexusVersion: 'nexus3', 
+					protocol: 'http', 
+					repository: 'http://ec2-18-222-145-169.us-east-2.compute.amazonaws.com:8081/repository/Kubedemo-Release/', 
+					version: '2.3.0.RELEASE'
 			}
 		}
 		stage ('Building Docker Image') {
